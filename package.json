@@ -1,7 +1,7 @@
 {
-  "name": "Incident_Tracking_App",
+  "name": "incident-tracker-sap-cap",
   "version": "1.0.0",
-  "description": "Incident Tracking App",
+  "description": "Incident Tracker SAP CAP",
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8.9.13",
     "@sap/dev-cap-tools": "^1.31.0",
     "@sap/ux-specification": "^1.120.9"
   },

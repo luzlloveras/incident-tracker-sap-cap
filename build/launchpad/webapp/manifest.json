@@ -1,14 +1,14 @@
 {
   "_version": "1.21.0",
   "sap.app": {
-    "id": "Incident_Tracking_App-Launchpad",
+    "id": "incident-tracker-sap-cap-Launchpad",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
       "version": "1.0.0"
     },
-    "title": "Incident_Tracking_App",
-    "description": "Launchpad for Incident_Tracking_App"
+    "title": "incident-tracker-sap-cap",
+    "description": "Launchpad for incident-tracker-sap-cap"
   },
   "sap.ui": {
     "technology": "UI5",

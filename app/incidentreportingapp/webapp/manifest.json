@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.122.0",
+      "minUI5Version": "1.120.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -157,6 +157,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "lcap.Incident_Tracking_App"
+      "service": "lcap.incident-tracker-sap-cap"
   }
 }

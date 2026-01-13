@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: Incident_Tracking_App
+ID: incident-tracker-sap-cap
 version: 1.0.0
 description: A simple CAP project.
 parameters:
@@ -26,7 +26,7 @@ build-parameters:
       commands:
         - npm install
 modules:
-  - name: Incident_Tracking_App-incidentreportingapp
+  - name: incident-tracker-sap-cap-incidentreportingapp
     type: html5
     path: app/incidentreportingapp
     build-parameters:
@@ -44,7 +44,7 @@ modules:
       _artifactName: incidentreportingapp.zip
       supported-platforms: []
       build-result: dist-zip
-  - name: Incident_Tracking_App-db-deployer
+  - name: incident-tracker-sap-cap-db-deployer
     type: hdb
     path: gen/db
     parameters:
@@ -55,9 +55,9 @@ modules:
         - node_modules
         - package-lock.json
     requires:
-      - name: Incident_Tracking_App-service-uaa
-      - name: Incident_Tracking_App-service-db
-  - name: Incident_Tracking_App-srv
+      - name: incident-tracker-sap-cap-service-uaa
+      - name: incident-tracker-sap-cap-service-db
+  - name: incident-tracker-sap-cap-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -72,13 +72,13 @@ modules:
         - node_modules
         - package-lock.json
     requires:
-      - name: Incident_Tracking_App-service-uaa
-      - name: Incident_Tracking_App-service-db
-      - name: Incident_Tracking_App-service-destination
-      - name: Incident_Tracking_App-service-metadata
-      - name: Incident_Tracking_App-service-connectivity
-      - name: Incident_Tracking_App-service-logs
-  - name: Incident_Tracking_App-aux-destinations
+      - name: incident-tracker-sap-cap-service-uaa
+      - name: incident-tracker-sap-cap-service-db
+      - name: incident-tracker-sap-cap-service-destination
+      - name: incident-tracker-sap-cap-service-metadata
+      - name: incident-tracker-sap-cap-service-connectivity
+      - name: incident-tracker-sap-cap-service-logs
+  - name: incident-tracker-sap-cap-aux-destinations
     type: com.sap.application.content
     parameters:
       content:
@@ -86,26 +86,26 @@ modules:
           existing_destinations_policy: update
           destinations:
             - Authentication: OAuth2UserTokenExchange
-              Name: Incident_Tracking_App-service-uaa
-              ServiceInstanceName: Incident_Tracking_App-uaa
-              ServiceKeyName: Incident_Tracking_App-uaa-key
-              sap.cloud.service: lcap.Incident_Tracking_App
+              Name: incident-tracker-sap-cap-service-uaa
+              ServiceInstanceName: incident-tracker-sap-cap-uaa
+              ServiceKeyName: incident-tracker-sap-cap-uaa-key
+              sap.cloud.service: lcap.incident-tracker-sap-cap
             - Authentication: OAuth2UserTokenExchange
-              Name: Incident_Tracking_App-app-srv
-              TokenServiceInstanceName: Incident_Tracking_App-uaa
-              TokenServiceKeyName: Incident_Tracking_App-uaa-key
+              Name: incident-tracker-sap-cap-app-srv
+              TokenServiceInstanceName: incident-tracker-sap-cap-uaa
+              TokenServiceKeyName: incident-tracker-sap-cap-uaa-key
               URL: ~{srv-api/srv-url}
-              sap.cloud.service: lcap.Incident_Tracking_App
-            - Name: Incident_Tracking_App-service-html5-apps-repo-host
-              ServiceInstanceName: Incident_Tracking_App-html5-apps-repo-host
-              ServiceKeyName: Incident_Tracking_App-html5-apps-repo-host-key
-              sap.cloud.service: lcap.Incident_Tracking_App
+              sap.cloud.service: lcap.incident-tracker-sap-cap
+            - Name: incident-tracker-sap-cap-service-html5-apps-repo-host
+              ServiceInstanceName: incident-tracker-sap-cap-html5-apps-repo-host
+              ServiceKeyName: incident-tracker-sap-cap-html5-apps-repo-host-key
+              sap.cloud.service: lcap.incident-tracker-sap-cap
             - Authentication: OAuth2UserTokenExchange
-              Name: Incident_Tracking_App-incidentReportingSrv
-              TokenServiceInstanceName: Incident_Tracking_App-uaa
-              TokenServiceKeyName: Incident_Tracking_App-uaa-key
+              Name: incident-tracker-sap-cap-incidentReportingSrv
+              TokenServiceInstanceName: incident-tracker-sap-cap-uaa
+              TokenServiceKeyName: incident-tracker-sap-cap-uaa-key
               URL: ~{srv-api/srv-url}/incident-reporting-srv
-              sap.cloud.service: lcap.Incident_Tracking_App
+              sap.cloud.service: lcap.incident-tracker-sap-cap
               sap.applicationdevelopment.actions.enabled: false
               sap.build.usage: CAP
               sap.processautomation.enabled: false
@@ -116,19 +116,19 @@ modules:
     build-parameters:
       no-source: true
     requires:
-      - name: Incident_Tracking_App-service-uaa
+      - name: incident-tracker-sap-cap-service-uaa
         parameters:
           service-key:
-            name: Incident_Tracking_App-uaa-key
+            name: incident-tracker-sap-cap-uaa-key
       - name: srv-api
-      - name: Incident_Tracking_App-service-html5-apps-repo-host
+      - name: incident-tracker-sap-cap-service-html5-apps-repo-host
         parameters:
           service-key:
-            name: Incident_Tracking_App-html5-apps-repo-host-key
-      - name: Incident_Tracking_App-service-destination
+            name: incident-tracker-sap-cap-html5-apps-repo-host-key
+      - name: incident-tracker-sap-cap-service-destination
         parameters:
           content-target: true
-  - name: Incident_Tracking_App-launchpad
+  - name: incident-tracker-sap-cap-launchpad
     type: html5
     path: build/launchpad
     build-parameters:
@@ -144,76 +144,76 @@ modules:
       _artifactName: launchpad.zip
       supported-platforms: []
       build-result: ../../build/dist
-  - name: Incident_Tracking_App-aux-ui-deployer
+  - name: incident-tracker-sap-cap-aux-ui-deployer
     type: com.sap.application.content
     path: build/ui-deployer
     build-parameters:
       build-result: resources
       requires:
-        - name: Incident_Tracking_App-incidentreportingapp
+        - name: incident-tracker-sap-cap-incidentreportingapp
           artifacts:
             - incidentreportingapp.zip
           target-path: resources
-        - name: Incident_Tracking_App-launchpad
+        - name: incident-tracker-sap-cap-launchpad
           artifacts:
             - launchpad.zip
           target-path: resources
     requires:
-      - name: Incident_Tracking_App-service-html5-apps-repo-host
+      - name: incident-tracker-sap-cap-service-html5-apps-repo-host
         parameters:
           content-target: true
 resources:
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-uaa
+    name: incident-tracker-sap-cap-service-uaa
     parameters:
       service: xsuaa
       service-plan: application
-      service-name: Incident_Tracking_App-uaa
+      service-name: incident-tracker-sap-cap-uaa
       path: xs-security.json
       config:
         oauth2-configuration:
           redirect-uris:
             - https://*.${default-domain}/login/*
-        xsappname: Incident_Tracking_App-${space}
+        xsappname: incident-tracker-sap-cap-${space}
         role-collections: []
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-db
+    name: incident-tracker-sap-cap-service-db
     parameters:
       service: hana
       service-plan: hdi-shared
-      service-name: Incident_Tracking_App-db
+      service-name: incident-tracker-sap-cap-db
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-destination
+    name: incident-tracker-sap-cap-service-destination
     parameters:
       service: destination
       service-plan: lite
-      service-name: Incident_Tracking_App-destination
+      service-name: incident-tracker-sap-cap-destination
       config:
         HTML5Runtime_enabled: true
         version: 1.0.0
   - type: org.cloudfoundry.user-provided-service
-    name: Incident_Tracking_App-service-metadata
+    name: incident-tracker-sap-cap-service-metadata
     parameters:
       service: metadata
       service-plan: standard
-      service-name: Incident_Tracking_App-metadata
+      service-name: incident-tracker-sap-cap-metadata
       config:
         default-domain: ${default-domain}
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-connectivity
+    name: incident-tracker-sap-cap-service-connectivity
     parameters:
       service: connectivity
       service-plan: lite
-      service-name: Incident_Tracking_App-connectivity
+      service-name: incident-tracker-sap-cap-connectivity
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-logs
+    name: incident-tracker-sap-cap-service-logs
     parameters:
       service: application-logs
       service-plan: lite
-      service-name: Incident_Tracking_App-logs
+      service-name: incident-tracker-sap-cap-logs
   - type: org.cloudfoundry.managed-service
-    name: Incident_Tracking_App-service-html5-apps-repo-host
+    name: incident-tracker-sap-cap-service-html5-apps-repo-host
     parameters:
       service: html5-apps-repo
       service-plan: app-host
-      service-name: Incident_Tracking_App-html5-apps-repo-host
+      service-name: incident-tracker-sap-cap-html5-apps-repo-host

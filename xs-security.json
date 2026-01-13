@@ -2,6 +2,6 @@
   "scopes": [],
   "attributes": [],
   "role-templates": [],
-  "xsappname": "Incident_Tracking_App",
+  "xsappname": "incident-tracker-sap-cap",
   "tenant-mode": "dedicated"
 }

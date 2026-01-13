@@ -8,7 +8,7 @@
     {
       "source": "^/incident-reporting-srv/(.*)$",
       "target": "/incident-reporting-srv/$1",
-      "destination": "Incident_Tracking_App-app-srv",
+      "destination": "incident-tracker-sap-cap-app-srv",
       "authenticationType": "xsuaa"
     },
     {

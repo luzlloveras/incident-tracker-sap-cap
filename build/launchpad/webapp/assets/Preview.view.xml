@@ -16,12 +16,12 @@
     <l:BlockLayout>
         <l:BlockLayoutRow>
             <l:BlockLayoutCell
-                title="Incident_Tracking_App"
+                title="incident-tracker-sap-cap"
                 titleAlignment="Left"
                 class="customCellImageBackground">
                 <VBox>
                     <Text text="1.0.0" />
-                    <Link class="titleLink" text="View Log" target="_blank" href="https://logs.cf.us10-001.hana.ondemand.com/app/dashboards#/view/Overview?_g=(filters:!((query:(match_phrase:(component_name:Incident_Tracking_App-srv)))))" visible="true" />
+                    <Link class="titleLink" text="View Log" target="_blank" href="https://logs.cf.us10-001.hana.ondemand.com/app/dashboards#/view/Overview?_g=(filters:!((query:(match_phrase:(component_name:incident-tracker-sap-cap-srv)))))" visible="true" />
                 </VBox>
             </l:BlockLayoutCell>
         </l:BlockLayoutRow>
