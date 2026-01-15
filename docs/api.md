@@ -1,4 +1,4 @@
-# Endpoints
+# API and Endpoints
 
 ## User interface
 
