@@ -1,1 +1,0 @@
-Create an app where customers can report incidents. Each incident includes replacement items, and each replacement is linked to a product, which has its own entity
