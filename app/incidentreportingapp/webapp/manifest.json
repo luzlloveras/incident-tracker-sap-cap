@@ -10,11 +10,6 @@
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:lrop",
-      "version": "1.13.3",
-      "toolsId": "78615716-efb5-4520-bc98-11f432a59df0"
-    },
     "dataSources": {
       "mainService": {
         "uri": "odata/v4/incident-reporting-srv/",

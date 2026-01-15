@@ -1,5 +1,0 @@
-{
-  "ProjectOverviewURL": "https://6bb88a1ftrial.launchpad.cfapps.us10.hana.ondemand.com/lcapIncident_Tracking_App.Incident_Tracking_AppLaunchpad-1.0.0",
-  "DeployedUTCTime": "2024-05-04T02:21:43.035Z",
-  "ApplicationLogURL": "https://logs.cf.us10-001.hana.ondemand.com/app/dashboards#/view/Overview?_g=(filters:!((query:(match_phrase:(component_name:Incident_Tracking_App-srv)))))"
-}
