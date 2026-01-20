@@ -2,7 +2,7 @@ using { incidentReportingSrv } from '../srv/service.cds';
 
 annotate incidentReportingSrv.Customers with @UI.DataPoint #customerName: {
   Value: customerName,
-  Title: '{i18n>customerNameLabel}',
+  Title: 'Customer Name',
 };
 annotate incidentReportingSrv.Customers with @UI.HeaderFacets: [
  { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#customerName', ID: 'CustomerName' }
@@ -17,9 +17,9 @@ annotate incidentReportingSrv.Customers with {
 };
 annotate incidentReportingSrv.Customers with @UI.Identification: [{ Value: customerId }];
 annotate incidentReportingSrv.Customers with {
-  customerId @Common.Label: '{i18n>customerIdLabel}';
-  customerName @Common.Label: '{i18n>customerNameLabel}';
-  Incidents @Common.Label: '{i18n>incidentsLabel}'
+  customerId @Common.Label: 'Customer ID';
+  customerName @Common.Label: 'Customer Name';
+  Incidents @Common.Label: 'Incidents'
 };
 annotate incidentReportingSrv.Customers with {
   ID @Common.Text: { $value: customerId, ![@UI.TextArrangement]: #TextOnly };
@@ -39,7 +39,7 @@ annotate incidentReportingSrv.Customers with @UI.FieldGroup #Main: {
     { $Type: 'UI.DataField', Value: customerName }
 ]};
 annotate incidentReportingSrv.Customers with @UI.Facets: [
-  { $Type: 'UI.ReferenceFacet', ID: 'Main', Label: '{i18n>generalInformationLabel}', Target: '@UI.FieldGroup#Main' }
+  { $Type: 'UI.ReferenceFacet', ID: 'Main', Label: 'General Information', Target: '@UI.FieldGroup#Main' }
 ];
 annotate incidentReportingSrv.Incidents with {
   Customer @Common.ValueList: {
@@ -63,11 +63,11 @@ annotate incidentReportingSrv.Incidents with {
 };
 annotate incidentReportingSrv.Incidents with @UI.DataPoint #incidentDescription: {
   Value: incidentDescription,
-  Title: '{i18n>incidentSubjectLabel}',
+  Title: 'Subject',
 };
 annotate incidentReportingSrv.Incidents with @UI.DataPoint #customerName: {
   Value: Customer.customerName,
-  Title: '{i18n>customerLabel}',
+  Title: 'Customer',
 };
 annotate incidentReportingSrv.Incidents with @UI.HeaderFacets: [
   { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#incidentDescription', ID: 'IncidentDescription' },
@@ -84,10 +84,10 @@ annotate incidentReportingSrv.Incidents with {
 };
 annotate incidentReportingSrv.Incidents with @UI.Identification: [{ Value: incidentId }];
 annotate incidentReportingSrv.Incidents with {
-  incidentId @Common.Label: '{i18n>incidentIdLabel}';
-  incidentDescription @Common.Label: '{i18n>incidentSubjectLabel}';
-  Customer @Common.Label: '{i18n>customerLabel}';
-  Replacements @Common.Label: '{i18n>relatedItemsLabel}'
+  incidentId @Common.Label: 'Incident ID';
+  incidentDescription @Common.Label: 'Subject';
+  Customer @Common.Label: 'Customer';
+  Replacements @Common.Label: 'Related Items'
 };
 annotate incidentReportingSrv.Incidents with {
   ID @Common.Text: { $value: incidentId, ![@UI.TextArrangement]: #TextOnly };
@@ -97,9 +97,9 @@ annotate incidentReportingSrv.Incidents with @UI.SelectionFields: [
   Customer_ID
 ];
 annotate incidentReportingSrv.Incidents with @UI.LineItem : [
-  { $Type: 'UI.DataField', Label: '{i18n>incidentIdLabel}', Value: incidentId, Importance: #High },
-  { $Type: 'UI.DataField', Label: '{i18n>incidentSubjectLabel}', Value: incidentDescription, Importance: #High },
-  { $Type: 'UI.DataField', Label: '{i18n>customerLabel}', Value: Customer.customerName, Importance: #Medium }
+  { $Type: 'UI.DataField', Label: 'Incident ID', Value: incidentId, Importance: #High },
+  { $Type: 'UI.DataField', Label: 'Subject', Value: incidentDescription, Importance: #High },
+  { $Type: 'UI.DataField', Label: 'Customer', Value: Customer.customerName, Importance: #Medium }
 ];
 annotate incidentReportingSrv.Incidents with @UI.FieldGroup #incidentDetails: {
   $Type: 'UI.FieldGroupType', Data: [
@@ -124,9 +124,9 @@ annotate incidentReportingSrv.Replacements with @UI.LineItem #replacements: [
 
 
 annotate incidentReportingSrv.Incidents with @UI.Facets: [
-  { $Type: 'UI.ReferenceFacet', ID: 'incidentDetails', Label: '{i18n>detailsFacetLabel}', Target: '@UI.FieldGroup#incidentDetails' },
-  { $Type: 'UI.ReferenceFacet', ID: 'customerDetails', Label: '{i18n>customerFacetLabel}', Target: '@UI.FieldGroup#customerDetails' },
-  { $Type: 'UI.ReferenceFacet', ID: 'replacements', Label: '{i18n>relatedItemsLabel}', Target: 'Replacements/@UI.LineItem#replacements' }
+  { $Type: 'UI.ReferenceFacet', ID: 'incidentDetails', Label: 'Details', Target: '@UI.FieldGroup#incidentDetails' },
+  { $Type: 'UI.ReferenceFacet', ID: 'customerDetails', Label: 'Customer', Target: '@UI.FieldGroup#customerDetails' },
+  { $Type: 'UI.ReferenceFacet', ID: 'replacements', Label: 'Related Items', Target: 'Replacements/@UI.LineItem#replacements' }
 ];
 annotate incidentReportingSrv.Replacements with {
   Incident @Common.ValueList: {
@@ -178,9 +178,9 @@ annotate incidentReportingSrv.Replacements with {
 };
 annotate incidentReportingSrv.Replacements with @UI.Identification: [{ Value: replacementId }];
 annotate incidentReportingSrv.Replacements with {
-  replacementId @Common.Label: '{i18n>replacementIdLabel}';
-  Incident @Common.Label: '{i18n>incidentLabel}';
-  Product @Common.Label: '{i18n>productLabel}'
+  replacementId @Common.Label: 'Replacement ID';
+  Incident @Common.Label: 'Incident';
+  Product @Common.Label: 'Product'
 };
 annotate incidentReportingSrv.Replacements with {
   ID @Common.Text: { $value: replacementId, ![@UI.TextArrangement]: #TextOnly };
@@ -193,9 +193,9 @@ annotate incidentReportingSrv.Replacements with @UI.SelectionFields: [
 ];
 annotate incidentReportingSrv.Replacements with @UI.LineItem: [
   { $Type: 'UI.DataField', Value: ID },
-  { $Type: 'UI.DataField', Label: '{i18n>replacementIdLabel}', Value: replacementId },
-  { $Type: 'UI.DataField', Label: '{i18n>incidentLabel}', Value: Incident_ID },
-  { $Type: 'UI.DataField', Label: '{i18n>productLabel}', Value: Product_ID }
+  { $Type: 'UI.DataField', Label: 'Replacement ID', Value: replacementId },
+  { $Type: 'UI.DataField', Label: 'Incident', Value: Incident_ID },
+  { $Type: 'UI.DataField', Label: 'Product', Value: Product_ID }
 ];
 annotate incidentReportingSrv.Replacements with @UI.FieldGroup #replacementDetails: {
   $Type: 'UI.FieldGroupType', Data: [
@@ -224,13 +224,13 @@ annotate incidentReportingSrv.Replacements with @UI.FieldGroup #productDetails: 
 
 
 annotate incidentReportingSrv.Replacements with @UI.Facets: [
-  { $Type: 'UI.ReferenceFacet', ID: 'replacementDetails', Label: '{i18n>replacementDetailsLabel}', Target: '@UI.FieldGroup#replacementDetails' },
-  { $Type: 'UI.ReferenceFacet', ID: 'incidentDetails', Label: '{i18n>incidentDetailsLabel}', Target: '@UI.FieldGroup#incidentDetails' },
-  { $Type: 'UI.ReferenceFacet', ID: 'productDetails', Label: '{i18n>productDetailsLabel}', Target: '@UI.FieldGroup#productDetails' }
+  { $Type: 'UI.ReferenceFacet', ID: 'replacementDetails', Label: 'Replacement Details', Target: '@UI.FieldGroup#replacementDetails' },
+  { $Type: 'UI.ReferenceFacet', ID: 'incidentDetails', Label: 'Incident Details', Target: '@UI.FieldGroup#incidentDetails' },
+  { $Type: 'UI.ReferenceFacet', ID: 'productDetails', Label: 'Product Details', Target: '@UI.FieldGroup#productDetails' }
 ];
 annotate incidentReportingSrv.Products with @UI.DataPoint #productName: {
   Value: productName,
-  Title: '{i18n>productNameLabel}',
+  Title: 'Product Name',
 };
 annotate incidentReportingSrv.Products with @UI.HeaderFacets: [
  { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#productName', ID: 'ProductName' }
@@ -245,8 +245,8 @@ annotate incidentReportingSrv.Products with {
 };
 annotate incidentReportingSrv.Products with @UI.Identification: [{ Value: productId }];
 annotate incidentReportingSrv.Products with {
-  productId @Common.Label: '{i18n>productIdLabel}';
-  productName @Common.Label: '{i18n>productNameLabel}'
+  productId @Common.Label: 'Product ID';
+  productName @Common.Label: 'Product Name'
 };
 annotate incidentReportingSrv.Products with {
   ID @Common.Text: { $value: productId, ![@UI.TextArrangement]: #TextOnly };
@@ -266,5 +266,5 @@ annotate incidentReportingSrv.Products with @UI.FieldGroup #Main: {
     { $Type: 'UI.DataField', Value: productName }
 ]};
 annotate incidentReportingSrv.Products with @UI.Facets: [
-  { $Type: 'UI.ReferenceFacet', ID: 'Main', Label: '{i18n>generalInformationLabel}', Target: '@UI.FieldGroup#Main' }
+  { $Type: 'UI.ReferenceFacet', ID: 'Main', Label: 'General Information', Target: '@UI.FieldGroup#Main' }
 ];
